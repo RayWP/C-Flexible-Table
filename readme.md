@@ -27,7 +27,7 @@ Use StringContent / StringContent[] to pass your data to the table. Example is s
 ### Method:
 ```c
 headerTabel(int x_coord,int y_coord,int column_width,int number_of_columns, StringContent header_content[]);
-kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,int number_of_rows, StringContent rows_content[],int row_number);
+kontenTabel(int x_coord,int y_coord,int column_width,int number_of_columns,int number_of_rows, StringContent rows_content[],int row_number);
 ```
 ```c
 // headerTabel is for generating the header of the table, meanwhile the kontenTabel is for generating a single row. So you need to do the for loops yourself (I will try to improve this to ease you guys). Example is shown in ExampleUsage
