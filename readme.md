@@ -20,5 +20,5 @@ The method is capable of generating the table to certain position(x,y).
 ### Method:
 ```c
 headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, StringContent isi_header[]);
-isiTabelMakanan(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris);
+kontenTabel(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris);
 ```

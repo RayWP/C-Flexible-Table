@@ -120,7 +120,7 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
 }
 
 
-void isiTabelMakanan(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
+void kontenTabel(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
 {
     int i,j,l;
     y_coord += 5;
