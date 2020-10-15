@@ -115,7 +115,7 @@ void headerTabel(int x_coord,int y_coord,int column_width,int number_of_columns,
 }
 
 
-void kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,int number_of_rows, StringContent rows_content[],int row_number)
+void kontenTabel(int x_coord,int y_coord,int column_width,int number_of_columns,int number_of_rows, StringContent rows_content[],int row_number)
 {
     int i,j,l;
     y_coord += 5;
@@ -130,7 +130,7 @@ void kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,i
             {
                 printf(" %s",rows_content[cont_index]);
 
-                for(l=0 ; l<column_size-strlen(rows_content[cont_index]) ;l++)
+                for(l=0 ; l<column_width-strlen(rows_content[cont_index]) ;l++)
                 {
                     printf(" ");
                 }
@@ -148,7 +148,7 @@ void kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,i
             while(temp_lebar>0)
             {
                 
-                    for(j=0;j<=column_size;j++)
+                    for(j=0;j<=column_width;j++)
                     {
                         printf("%c",GARISMENDATAR);
                     }
@@ -172,7 +172,7 @@ void kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,i
             while(temp_lebar>0)
             {
                 
-                    for(j=0;j<=column_size;j++)
+                    for(j=0;j<=column_width;j++)
                     {
                         printf("%c",GARISMENDATAR);
                     }
