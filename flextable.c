@@ -33,63 +33,58 @@ void headerTabel(int x_coord,int y_coord,int column_width,int number_of_columns,
 {
   int i,j,k,l;
   int panjang_string=0;
-  StringContent temp;
-  va_list arg;
   int temp_lebar;
   for(i=0; i<3;i++)
   {
-      goToXY(x_coord,y_coord+i);
+    goToXY(x_coord,y_coord+i);
     temp_lebar = number_of_columns;
     if(i==0 || i==2) //atas
     {   
       if(i==0)
       {
-            printf("%c",SIKUKIRIATAS);
+        printf("%c",SIKUKIRIATAS);
 
-            while(temp_lebar>0)
+        while(temp_lebar>0)
+        {
+            for(j=0;j<=column_width;j++)
             {
-                
-                    for(j=0;j<=column_width;j++)
-                    {
-                        printf("%c",GARISMENDATAR);
-                    }
-
-                    if(temp_lebar==1)
-                    {
-                        printf("%c",SIKUKANANATAS);
-                    }
-                    else
-                    {
-                        printf("%c",INTERSECTIONATAS);
-                    }
-                temp_lebar--;
+                printf("%c",GARISMENDATAR);
             }
+
+            if(temp_lebar==1)
+            {
+                printf("%c",SIKUKANANATAS);
+            }
+            else
+            {
+                printf("%c",INTERSECTIONATAS);
+            }
+            temp_lebar--;
+        }
       }
       else
       {
-            printf("%c",SIMPANGTIGAKIRI);
+        printf("%c",SIMPANGTIGAKIRI);
 
-            while(temp_lebar>0)
-            {
-                
-                    for(j=0;j<=column_width;j++)
-                    {
-                        printf("%c",GARISMENDATAR);
-                    }
+        while(temp_lebar>0)
+        {
+            
+                for(j=0;j<=column_width;j++)
+                {
+                    printf("%c",GARISMENDATAR);
+                }
 
-                    if(temp_lebar==1)
-                    {
-                        printf("%c",SIMPANGTIGAKANAN);
-                    }
-                    else
-                    {
-                        printf("%c",INTERSECTIONDOUBLEGARISTENGAH);
-                    }
-                temp_lebar--;
-            }
-      }
-      
-      
+                if(temp_lebar==1)
+                {
+                    printf("%c",SIMPANGTIGAKANAN);
+                }
+                else
+                {
+                    printf("%c",INTERSECTIONDOUBLEGARISTENGAH);
+                }
+            temp_lebar--;
+        }
+      }     
     }
     else //isi tengah
     { 
@@ -124,79 +119,74 @@ void kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,i
 {
     int i,j,l;
     y_coord += 5;
-    StringContent temp_harga;
-    // for(k=1;k<jumlahMenu;k++) // mengulang sebanyak jumlah menu
-    // {
-        for(i=row_number;i<=row_number+1;i++) // membuat baris ( terdiri dari 2 ) baris pembatas dan baris konten tabel
+    for(i=row_number;i<=row_number+1;i++) // membuat baris ( terdiri dari 2 ) baris pembatas dan baris konten tabel
+    {
+        goToXY(x_coord,y_coord+row_number+i-2);
+        if(i==row_number) //Kolom  isi tabel konten
         {
-        	goToXY(x_coord,y_coord+row_number+i-2);
-            if(i==row_number) //Kolom  isi tabel konten
+            printf("%c",GARISTEPI);
+            int cont_index;
+            for(cont_index=0; cont_index<number_of_columns; cont_index++)
             {
-                printf("%c",GARISTEPI);
-                int cont_index;
-                for(cont_index=0; cont_index<number_of_columns; cont_index++)
-                {
-                    printf(" %s",rows_content[cont_index]);
+                printf(" %s",rows_content[cont_index]);
 
-                    for(l=0 ; l<column_size-strlen(rows_content[cont_index]) ;l++)
-                    {
-                        printf(" ");
-                    }
-                    if(cont_index!=number_of_columns-1)
-                    {
-                        printf("%c",GARISTENGAH);
-                    }
+                for(l=0 ; l<column_size-strlen(rows_content[cont_index]) ;l++)
+                {
+                    printf(" ");
                 }
-                printf("%c",GARISTEPI);
+                if(cont_index!=number_of_columns-1)
+                {
+                    printf("%c",GARISTENGAH);
+                }
             }
-            else if(row_number==number_of_rows-1)
-			{
-				printf("%c",SIKUKIRIBAWAH);
-				int temp_lebar = number_of_columns;
-	            while(temp_lebar>0)
-	            {
-	                
-	                    for(j=0;j<=column_size;j++)
-	                    {
-	                        printf("%c",GARISMENDATAR);
-	                    }
-	
-	                    if(temp_lebar==1)
-	                    {
-	                        printf("%c",SIKUKANANBAWAH);
-	                    }
-	                    else
-	                    {
-	                        printf("%c",INTERSECTIONBAWAH);
-	                    }
-	                temp_lebar--;
-	            }
-	            
-			}
-            else if(i==row_number+1) //* baris batas antar baris /
-            {
-            	printf("%c",SIMPANGTIGAKIRI);
-				int temp_lebar = number_of_columns;
-	            while(temp_lebar>0)
-	            {
-	                
-	                    for(j=0;j<=column_size;j++)
-	                    {
-	                        printf("%c",GARISMENDATAR);
-	                    }
-	
-	                    if(temp_lebar==1)
-	                    {
-	                        printf("%c",SIMPANGTIGAKANAN);
-	                    }
-	                    else
-	                    {
-	                        printf("%c",INTERSECTIONDOUBLEGARISTENGAH);
-	                    }
-	                temp_lebar--;
-	            }
-			}
+            printf("%c",GARISTEPI);
         }
-        printf("\n");
-    // } 
+        else if(row_number==number_of_rows-1)
+        {
+            printf("%c",SIKUKIRIBAWAH);
+            int temp_lebar = number_of_columns;
+            while(temp_lebar>0)
+            {
+                
+                    for(j=0;j<=column_size;j++)
+                    {
+                        printf("%c",GARISMENDATAR);
+                    }
+
+                    if(temp_lebar==1)
+                    {
+                        printf("%c",SIKUKANANBAWAH);
+                    }
+                    else
+                    {
+                        printf("%c",INTERSECTIONBAWAH);
+                    }
+                temp_lebar--;
+            }
+            
+        }
+        else if(i==row_number+1) //* baris batas antar baris /
+        {
+            printf("%c",SIMPANGTIGAKIRI);
+            int temp_lebar = number_of_columns;
+            while(temp_lebar>0)
+            {
+                
+                    for(j=0;j<=column_size;j++)
+                    {
+                        printf("%c",GARISMENDATAR);
+                    }
+                    if(temp_lebar==1)
+                    {
+                        printf("%c",SIMPANGTIGAKANAN);
+                    }
+                    else
+                    {
+                        printf("%c",INTERSECTIONDOUBLEGARISTENGAH);
+                    }
+                temp_lebar--;
+            }
+        }
+    }
+    printf("\n");
 }
