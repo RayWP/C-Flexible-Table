@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "./flextable.c"
+#include "../flextable.c"
 
 int main()
 {
