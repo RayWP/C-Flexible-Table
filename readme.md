@@ -17,14 +17,14 @@ The method is capable of generating the table to certain position(x,y).
 #include "./flextable.c"
 ```
 
-### Feature:
-#### Datatype
+## Feature:
+### Datatype:
 ```c
 typedef StringContent char[255];
 ```
 Use StringContent / StringContent[] to pass your data to the table. Example is shown in ExampleUsage
 
-#### Method:
+### Method:
 ```c
 headerTabel(int x_coord,int y_coord,int column_width,int number_of_columns, StringContent header_content[])
 kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,int number_of_rows, StringContent rows_content[],int row_number);
