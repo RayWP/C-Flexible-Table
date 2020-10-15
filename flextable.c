@@ -21,7 +21,7 @@
 #define INTERSECTIONDOUBLEGARISTENGAH 216
 #define SIMPANGTIGAKIRI 204
 #define SIMPANGTIGAKANAN 185
-typedef char StringContent[20];
+typedef char StringContent[255];
 
 void goToXY(int x_coord, int y_coord)
 {
@@ -29,7 +29,7 @@ void goToXY(int x_coord, int y_coord)
   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
 }
 
-void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, StringContent isi_header[])
+void headerTabel(int x_coord,int y_coord,int column_width,int number_of_columns, StringContent header_content[])
 {
   int i,j,k,l;
   int panjang_string=0;
@@ -39,7 +39,7 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
   for(i=0; i<3;i++)
   {
       goToXY(x_coord,y_coord+i);
-    temp_lebar = jumlah_kolom;
+    temp_lebar = number_of_columns;
     if(i==0 || i==2) //atas
     {   
       if(i==0)
@@ -49,7 +49,7 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
             while(temp_lebar>0)
             {
                 
-                    for(j=0;j<=lebar_kolom;j++)
+                    for(j=0;j<=column_width;j++)
                     {
                         printf("%c",GARISMENDATAR);
                     }
@@ -72,7 +72,7 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
             while(temp_lebar>0)
             {
                 
-                    for(j=0;j<=lebar_kolom;j++)
+                    for(j=0;j<=column_width;j++)
                     {
                         printf("%c",GARISMENDATAR);
                     }
@@ -96,15 +96,15 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
       printf("%c",GARISTEPI);
       int j;
       
-      for(j=0 ;j <jumlah_kolom; j++)
+      for(j=0 ;j <number_of_columns; j++)
       {
-         l = strlen(isi_header[j]);
-        printf(" %s",isi_header[j]);
-        for(k=0; k<lebar_kolom-l;k++)
+         l = strlen(header_content[j]);
+        printf(" %s",header_content[j]);
+        for(k=0; k<column_width-l;k++)
         {
           printf(" ");
         }
-        if(j==jumlah_kolom-1)
+        if(j==number_of_columns-1)
         {
             printf("%c",GARISTEPI);
         }
@@ -120,39 +120,39 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
 }
 
 
-void kontenTabel(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
+void kontenTabel(int x_coord,int y_coord,int column_size,int number_of_columns,int number_of_rows, StringContent rows_content[],int row_number)
 {
     int i,j,l;
     y_coord += 5;
     StringContent temp_harga;
     // for(k=1;k<jumlahMenu;k++) // mengulang sebanyak jumlah menu
     // {
-        for(i=urutan_baris;i<=urutan_baris+1;i++) // membuat baris ( terdiri dari 2 ) baris pembatas dan baris konten tabel
+        for(i=row_number;i<=row_number+1;i++) // membuat baris ( terdiri dari 2 ) baris pembatas dan baris konten tabel
         {
-        	goToXY(x_coord,y_coord+urutan_baris+i-2);
-            if(i==urutan_baris) //Kolom  isi tabel konten
+        	goToXY(x_coord,y_coord+row_number+i-2);
+            if(i==row_number) //Kolom  isi tabel konten
             {
                 printf("%c",GARISTEPI);
                 int cont_index;
-                for(cont_index=0; cont_index<jumlah_kolom; cont_index++)
+                for(cont_index=0; cont_index<number_of_columns; cont_index++)
                 {
-                    printf(" %s",isi_baris[cont_index]);
+                    printf(" %s",rows_content[cont_index]);
 
-                    for(l=0 ; l<column_size-strlen(isi_baris[cont_index]) ;l++)
+                    for(l=0 ; l<column_size-strlen(rows_content[cont_index]) ;l++)
                     {
                         printf(" ");
                     }
-                    if(cont_index!=jumlah_kolom-1)
+                    if(cont_index!=number_of_columns-1)
                     {
                         printf("%c",GARISTENGAH);
                     }
                 }
                 printf("%c",GARISTEPI);
             }
-            else if(urutan_baris==jumlah_menu-1)
+            else if(row_number==number_of_rows-1)
 			{
 				printf("%c",SIKUKIRIBAWAH);
-				int temp_lebar = jumlah_kolom;
+				int temp_lebar = number_of_columns;
 	            while(temp_lebar>0)
 	            {
 	                
@@ -173,10 +173,10 @@ void kontenTabel(int x_coord,int y_coord,int column_size,int jumlah_kolom,int ju
 	            }
 	            
 			}
-            else if(i==urutan_baris+1) //* baris batas antar baris /
+            else if(i==row_number+1) //* baris batas antar baris /
             {
             	printf("%c",SIMPANGTIGAKIRI);
-				int temp_lebar = jumlah_kolom;
+				int temp_lebar = number_of_columns;
 	            while(temp_lebar>0)
 	            {
 	                
