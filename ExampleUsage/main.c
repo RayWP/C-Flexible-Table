@@ -5,26 +5,25 @@ int main()
 {
     StringContent header[3];
     StringContent isikonten[3];
+    int k;
+    system("cls");
+
     strcpy(header[0],"kol 1");
     strcpy(header[1],"kol 2");
     strcpy(header[2],"kol 3");
-    system("cls");
     
-    int k = 0;
-
-    headerTabel(10,10,20,3,header);
-    strcpy(isikonten[0],"isi 1");
+    strcpy(isikonten[0],"isi 2");
     strcpy(isikonten[1],"isi 2");
     strcpy(isikonten[2],"isi 3");
-    
+
+    //creating header
+    headerTabel(5,5,20,3,header);    
     for(k=0; k<3; k++)
     {
-       kontenTabel(10,10,20,3,3,isikonten,k);
+        //adding row
+        kontenTabel(5,5,20,3,3,isikonten,k);
     }
-    // int a[17];
-    // header = (StringContent*) calloc(4,sizeof(StringContent));
-    // size_t n = sizeof(header)/sizeof(header[0]);
-    // printf("%d",n);
 
+    getch();
     return 0;
 }
