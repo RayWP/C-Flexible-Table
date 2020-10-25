@@ -20,7 +20,7 @@ The method is capable of generating the table to certain position(x,y).
 ## Feature:
 ### Datatype:
 ```c
-typedef StringContent char[255];
+typedef char StringContent[255];
 ```
 Use StringContent / StringContent[] to pass your data to the table. Example is shown in ExampleUsage
 
