@@ -23,13 +23,15 @@
 #define SIMPANGTIGAKANAN 185
 typedef char StringContent[255];
 
+
+
 void goToXY(int x_coord, int y_coord)
 {
   COORD pos = {x_coord, y_coord};
   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
 }
 
-void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, StringContent isi_header[])
+void headerTabel(int x_coord_table,int y_coord_table,int lebar_kolom,int jumlah_kolom, StringContent isi_header[])
 {
   int i,j,k,l;
   int panjang_string=0;
@@ -38,7 +40,7 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
   int temp_lebar;
   for(i=0; i<3;i++)
   {
-    goToXY(x_coord,y_coord+i);
+    goToXY(x_coord_table,y_coord_table+i);
     temp_lebar = jumlah_kolom;
     if(i==0 || i==2) //atas
     {   
@@ -120,16 +122,16 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
 }
 
 
-void isiTabelMakanan(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
+void kontenTabel(int x_coord_table,int y_coord_table,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
 {
     int i,j,l;
-    y_coord += 5;
+    y_coord_table += 5;
     StringContent temp_harga;
     // for(k=1;k<jumlahMenu;k++) // mengulang sebanyak jumlah menu
     // {
         for(i=urutan_baris;i<=urutan_baris+1;i++) // membuat baris ( terdiri dari 2 ) baris pembatas dan baris konten tabel
         {
-        	goToXY(x_coord,y_coord+urutan_baris+i-2);
+        	goToXY(x_coord_table,y_coord_table+urutan_baris+i-2);
             if(i==urutan_baris) //Kolom  isi tabel konten
             {
                 printf("%c",GARISTEPI);
@@ -152,6 +154,7 @@ void isiTabelMakanan(int x_coord,int y_coord,int column_size,int jumlah_kolom,in
             else if(urutan_baris==jumlah_menu-1)
 			{
 				printf("%c",SIKUKIRIBAWAH);
+                
 				int temp_lebar = jumlah_kolom;
 	            while(temp_lebar>0)
 	            {
