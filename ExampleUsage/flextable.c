@@ -21,7 +21,7 @@
 #define INTERSECTIONDOUBLEGARISTENGAH 216
 #define SIMPANGTIGAKIRI 204
 #define SIMPANGTIGAKANAN 185
-typedef char StringContent[255];
+typedef char StringContent[20];
 
 void goToXY(int x_coord, int y_coord)
 {
@@ -38,7 +38,7 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
   int temp_lebar;
   for(i=0; i<3;i++)
   {
-    goToXY(x_coord,y_coord+i);
+      goToXY(x_coord,y_coord+i);
     temp_lebar = jumlah_kolom;
     if(i==0 || i==2) //atas
     {   
@@ -120,7 +120,7 @@ void headerTabel(int x_coord,int y_coord,int lebar_kolom,int jumlah_kolom, Strin
 }
 
 
-void isiTabelMakanan(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
+void kontenTabel(int x_coord,int y_coord,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
 {
     int i,j,l;
     y_coord += 5;

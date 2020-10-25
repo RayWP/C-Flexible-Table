@@ -19,9 +19,12 @@ int main()
     
     for(k=0; k<3; k++)
     {
-        isiTabelMakanan(10,10,20,3,3,isikonten,k);
+       kontenTabel(10,10,20,3,3,isikonten,k);
     }
-    
+    // int a[17];
+    // header = (StringContent*) calloc(4,sizeof(StringContent));
+    // size_t n = sizeof(header)/sizeof(header[0]);
+    // printf("%d",n);
 
     return 0;
 }
