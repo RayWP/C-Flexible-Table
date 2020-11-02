@@ -23,6 +23,8 @@
 #define SIMPANGTIGAKANAN 185
 typedef char StringContent[255];
 
+int x_coord_table = 1;
+int y_coord_table = 1;
 
 
 void goToXY(int x_coord, int y_coord)
@@ -121,6 +123,11 @@ void headerTabel(int x_coord_table,int y_coord_table,int lebar_kolom,int jumlah_
   }
 }
 
+void setXYCoord(int x, int y)
+{
+    x_coord_table = x;
+    y_coord_table = y;
+}
 
 void kontenTabel(int x_coord_table,int y_coord_table,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
 {
