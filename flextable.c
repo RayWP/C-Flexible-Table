@@ -33,7 +33,7 @@ void goToXY(int x_coord, int y_coord)
   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
 }
 
-void headerTabel(int x_coord_table,int y_coord_table,int lebar_kolom,int jumlah_kolom, StringContent isi_header[])
+void headerTabel(int lebar_kolom,int jumlah_kolom, StringContent isi_header[])
 {
   int i,j,k,l;
   int panjang_string=0;
@@ -129,7 +129,7 @@ void setXYCoord(int x, int y)
     y_coord_table = y;
 }
 
-void kontenTabel(int x_coord_table,int y_coord_table,int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
+void kontenTabel(int column_size,int jumlah_kolom,int jumlah_menu, StringContent isi_baris[],int urutan_baris)
 {
     int i,j,l;
     y_coord_table += 5;
