@@ -3,8 +3,8 @@
 
 int main()
 {
-    StringContent header[3];
-    StringContent isikonten[3];
+    StringContent header[3]; //table header
+    StringContent isikonten[3]; //table content row
     int k;
     system("cls");
 
@@ -17,11 +17,11 @@ int main()
     strcpy(isikonten[2],"isi 3");
 
     //creating header
-    headerTabel(5,5,20,3,header);    
+    headerTabel(20,3,header);    
     for(k=0; k<3; k++)
     {
         //adding row
-        kontenTabel(5,5,20,3,3,isikonten,k);
+        kontenTabel(20,3,3,isikonten,k);
     }
 
     getch();
