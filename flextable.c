@@ -31,8 +31,6 @@ typedef struct
 #define SIMPANGTIGAKANAN 185
 typedef char StringContent[255];
 
-int x_coord_table = 1;
-int y_coord_table = 1;
 
 TableAttribute TABLE_ATTRIBUTE;
 
@@ -42,49 +40,51 @@ void goToXY(int x_coord, int y_coord)
   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),pos);
 }
 
-void tableHeader(int column_width,int no_of_columns, StringContent header_contents[])
+void tableHeader(StringContent header_contents[])
 {
-  int i,j,k,l;
-  int panjang_string=0;
-  StringContent temp;
-  va_list arg;
-  int temp_lebar;
-  for(i=0; i<3;i++)
-  {
-    goToXY(x_coord_table,y_coord_table+i);
-    temp_lebar = no_of_columns;
-    if(i==0 || i==2) //atas
-    {   
-      if(i==0)
-      {
-            printf("%c",SIKUKIRIATAS);
+    int i,j,k,l;
+    int x_coord_table = TABLE_ATTRIBUTE.x_coord_table;
+    int y_coord_table = TABLE_ATTRIBUTE.y_coord_table;
+    int column_size   = TABLE_ATTRIBUTE.column_width;
+    int no_of_columns = TABLE_ATTRIBUTE.no_of_columns;
 
-            while(temp_lebar>0)
+    int temp_lebar;
+    for(i=0; i<3;i++)
+    {
+        goToXY(x_coord_table,y_coord_table+i);
+        temp_lebar = no_of_columns;
+        if(i==0 || i==2) //atas
+        {   
+            if(i==0)
             {
-                
-                    for(j=0;j<=column_width;j++)
-                    {
-                        printf("%c",GARISMENDATAR);
-                    }
+                printf("%c",SIKUKIRIATAS);
 
-                    if(temp_lebar==1)
-                    {
-                        printf("%c",SIKUKANANATAS);
-                    }
-                    else
-                    {
-                        printf("%c",INTERSECTIONATAS);
-                    }
-                temp_lebar--;
+                while(temp_lebar>0)
+                {
+                    
+                        for(j=0;j<=column_width;j++)
+                        {
+                            printf("%c",GARISMENDATAR);
+                        }
+
+                        if(temp_lebar==1)
+                        {
+                            printf("%c",SIKUKANANATAS);
+                        }
+                        else
+                        {
+                            printf("%c",INTERSECTIONATAS);
+                        }
+                    temp_lebar--;
+                }
             }
-      }
-      else
-      {
-            printf("%c",SIMPANGTIGAKIRI);
-
-            while(temp_lebar>0)
+            else
             {
-                
+                printf("%c",SIMPANGTIGAKIRI);
+
+                while(temp_lebar>0)
+                {
+                    
                     for(j=0;j<=column_width;j++)
                     {
                         printf("%c",GARISMENDATAR);
@@ -98,55 +98,57 @@ void tableHeader(int column_width,int no_of_columns, StringContent header_conten
                     {
                         printf("%c",INTERSECTIONDOUBLEGARISTENGAH);
                     }
-                temp_lebar--;
-            }
-      }
-      
-      
-    }
-    else //isi tengah
-    { 
-      printf("%c",GARISTEPI);
-      int j;
-      
-      for(j=0 ;j <no_of_columns; j++)
-      {
-         l = strlen(header_contents[j]);
-        printf(" %s",header_contents[j]);
-        for(k=0; k<column_width-l;k++)
-        {
-          printf(" ");
+                    temp_lebar--;
+                }
+            } 
         }
-        if(j==no_of_columns-1)
-        {
+        else //isi tengah
+        { 
             printf("%c",GARISTEPI);
-        }
-        else
-        {
-            printf("%c",GARISTENGAH);
-        }
+            int j;
+            
+            for(j=0 ;j <no_of_columns; j++)
+            {
+                l = strlen(header_contents[j]);
+                printf(" %s",header_contents[j]);
 
-      }
+                for(k=0; k<column_width-l;k++)
+                {
+                    printf(" ");
+                }
+
+                if(j==no_of_columns-1)
+                {
+                    printf("%c",GARISTEPI);
+                }
+                else
+                {
+                    printf("%c",GARISTENGAH);
+                }
+
+            }
+        }
+        printf("\n");
     }
-    printf("\n");
-  }
 }
 
 void setTableAttribute(int x, int y, int column_width, int no_of_columns)
 {
-    x_coord_table = x;
-    y_coord_table = y;
-
     TABLE_ATTRIBUTE.x_coord_table = x;
     TABLE_ATTRIBUTE.y_coord_table = y;
     TABLE_ATTRIBUTE.column_width  = column_width;
     TABLE_ATTRIBUTE.no_of_columns = no_of_columns;
 }
 
-void tableContent(int column_size,int no_of_columns,int no_of_rows, StringContent row_contents[],int order_of_the_row)
+void tableContent(int no_of_rows, StringContent row_contents[],int order_of_the_row)
 {
     int i,j,l;
     StringContent temp_harga;
+    int x_coord_table = TABLE_ATTRIBUTE.x_coord_table;
+    int y_coord_table = TABLE_ATTRIBUTE.y_coord_table;
+    int column_size   = TABLE_ATTRIBUTE.column_width;
+    int no_of_columns = TABLE_ATTRIBUTE.no_of_columns;
+
     for(i=order_of_the_row;i<=order_of_the_row+1;i++) // membuat baris ( terdiri dari 2 ) baris pembatas dan baris konten tabel
     {
         //move to X, and Y + i - 2 + 5
