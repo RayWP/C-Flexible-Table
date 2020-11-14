@@ -29,8 +29,8 @@ typedef struct
     int column_width;
 }TableAttribute;
 ```
-Use StringContent / StringContent[] to pass your data to the table. Example is shown in ExampleUsage
-TableAttribute is only used as constant datatype to set the table attribute shown above
+Use StringContent / StringContent[] to pass your data to the table. Example is shown in ExampleUsage <br />
+TableAttribute is only used as constant datatype to set the table attribute shown above <br />
 
 ### Constant/Default variable:
 ```c
@@ -48,8 +48,8 @@ TableAttribute TABLE_ATTRIBUTE;
 #define SIMPANGTIGAKIRI 204
 #define SIMPANGTIGAKANAN 185
 ```
-all the define, is using extended 255-bit ascii to make the table border
-TABLE_ATTRIBUTE is used for setting the table attribute, please modify it using setTableAttribute();
+all the define, is using extended 255-bit ascii to make the table border <br />
+TABLE_ATTRIBUTE is used for setting the table attribute, please modify it using setTableAttribute(); <br />
 
 ### Method:
 ```c
