@@ -9,6 +9,14 @@
 // defined datatype -> PascalCase
 // constant ALL CAPS
 
+typedef struct
+{
+    int x_coord_table;
+    int y_coord_table;
+    int no_of_columns;
+    int column_width;
+}TableAttribute;
+
 #define SIKUKANANATAS 187
 #define SIKUKIRIATAS 201
 #define SIKUKANANBAWAH 188
@@ -26,6 +34,7 @@ typedef char StringContent[255];
 int x_coord_table = 1;
 int y_coord_table = 1;
 
+TableAttribute TABLE_ATTRIBUTE;
 
 void goToXY(int x_coord, int y_coord)
 {
@@ -123,10 +132,15 @@ void tableHeader(int column_width,int no_of_columns, StringContent header_conten
   }
 }
 
-void setXYCoord(int x, int y)
+void setTableAttribute(int x, int y, int column_width, int no_of_columns)
 {
     x_coord_table = x;
     y_coord_table = y;
+
+    TABLE_ATTRIBUTE.x_coord_table = x;
+    TABLE_ATTRIBUTE.y_coord_table = y;
+    TABLE_ATTRIBUTE.column_width  = column_width;
+    TABLE_ATTRIBUTE.no_of_columns = no_of_columns;
 }
 
 void tableContent(int column_size,int no_of_columns,int no_of_rows, StringContent row_contents[],int order_of_the_row)
