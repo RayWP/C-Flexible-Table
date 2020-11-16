@@ -45,7 +45,7 @@ void tableHeader(StringContent header_contents[])
     int i,j,k,l;
     int x_coord_table = TABLE_ATTRIBUTE.x_coord_table;
     int y_coord_table = TABLE_ATTRIBUTE.y_coord_table;
-    int column_size   = TABLE_ATTRIBUTE.column_width;
+    int column_width   = TABLE_ATTRIBUTE.column_width;
     int no_of_columns = TABLE_ATTRIBUTE.no_of_columns;
 
     int temp_lebar;
