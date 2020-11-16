@@ -53,8 +53,8 @@ TABLE_ATTRIBUTE is used for setting the table attribute, please modify it using 
 
 ### Method:
 ```c
-void tableHeader(StringContent header_contents[]);
-void tableContent(int no_of_rows, StringContent row_contents[],int order_of_the_row);
+void tableHeader(int column_width,int no_of_columns, StringContent header_contents[]);
+void tableContent(int column_size,int no_of_columns,int no_of_rows, StringContent row_contents[],int order_of_the_row);
 void setTableAttribute(int x, int y, int column_width, int no_of_columns)
 ```
 
